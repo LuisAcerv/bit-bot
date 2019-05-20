@@ -11,6 +11,11 @@ module.exports = {
         .toString()
         .toLowerCase()
         .indexOf("help") === 0;
+    const startCondition =
+      msg.text
+        .toString()
+        .toLowerCase()
+        .indexOf("/start") === 0;
     const condition =
       msg.text
         .toString()
@@ -35,6 +40,13 @@ module.exports = {
         `Hello ${
           msg.chat.first_name
         }, the current supported commands are "Btc price, bitcoin price"`
+      );
+    } else if (startCondition) {
+      bot.sendMessage(
+        msg.chat.id,
+        `Hello ${
+          msg.chat.first_name
+        }, I am bitbot, I will help you to be updated about bitcoin price`
       );
     } else {
       bot.sendMessage(
