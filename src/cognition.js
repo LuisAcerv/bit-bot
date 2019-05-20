@@ -28,6 +28,18 @@ module.exports = {
       msg.text
         .toString()
         .toLowerCase()
+        .indexOf("price btc") === 0 ||
+      msg.text
+        .toString()
+        .toLowerCase()
+        .indexOf("price") === 0 ||
+      msg.text
+        .toString()
+        .toLowerCase()
+        .indexOf("precio") === 0 ||
+      msg.text
+        .toString()
+        .toLowerCase()
         .indexOf("precio del bitcoin") === 0;
     if (condition) {
       bot.sendMessage(
