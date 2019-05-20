@@ -73,11 +73,9 @@ module.exports = {
         }, I am bitbot, I will help you to be updated about bitcoin price`
       );
     } else if (feedCondition) {
-      let feed = await parser.parseURL("https://cointelegraph.com/rss-feeds");
-      console.log(feed.title);
+      let feed = await parser.parseURL(process.env.C_T_NEWS);
 
       feed.items.forEach(item => {
-        console.log(item.title + ":" + item.link);
         bot.sendMessage(
           msg.chat.id,
           `Hello ${msg.chat.first_name}, your btc feed ${item.title} - ${
