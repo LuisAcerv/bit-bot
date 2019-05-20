@@ -1,5 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
+const Parser = require("rss-parser");
+const parser = new Parser();
 
 const url = process.env.URL;
 
@@ -7,6 +9,11 @@ module.exports = {
   identifyCommand: async (msg, bot) => {
     const fetchPrice = await axios.get(url);
     const price = fetchPrice.data.bpi.USD.rate_float.toFixed(2);
+    const feedCondition =
+      msg.text
+        .toString()
+        .toLowerCase()
+        .indexOf("btc feed") === 0;
     const helpCondition =
       msg.text
         .toString()
@@ -61,6 +68,16 @@ module.exports = {
           msg.chat.first_name
         }, I am bitbot, I will help you to be updated about bitcoin price`
       );
+    } else if (feedCondition) {
+      let feed = await parser.parseURL(process.env.C_T_NEWS);
+
+      bot.sendMessage(
+        msg.chat.id,
+        `Hello ${msg.chat.first_name}, your btc feed:`
+      );
+      feed.items.slice(0, 10).forEach(item => {
+        bot.sendMessage(msg.chat.id, `${item.title} - ${item.link} "`);
+      });
     } else {
       bot.sendMessage(
         msg.chat.id,
