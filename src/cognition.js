@@ -13,7 +13,11 @@ module.exports = {
       msg.text
         .toString()
         .toLowerCase()
-        .indexOf("feed") === 0;
+        .indexOf("feed") === 0 &&
+      msg.text
+        .toString()
+        .toLowerCase()
+        .indexOf("test-feature");
     const helpCondition =
       msg.text
         .toString()
