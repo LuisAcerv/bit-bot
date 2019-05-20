@@ -17,7 +17,7 @@ module.exports = {
       msg.text
         .toString()
         .toLowerCase()
-        .indexOf("test-feature");
+        .indexOf("test-feature") === 0;
     const helpCondition =
       msg.text
         .toString()
