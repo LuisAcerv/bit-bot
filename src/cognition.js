@@ -1,6 +1,7 @@
+require("dotenv").config();
 const axios = require("axios");
 
-const url = "https://api.coindesk.com/v1/bpi/currentprice/USD.json";
+const url = process.env.URL;
 
 module.exports = {
   identifyCommand: async (msg, bot) => {
