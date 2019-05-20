@@ -6,6 +6,11 @@ module.exports = {
   identifyCommand: async (msg, bot) => {
     const fetchPrice = await axios.get(url);
     const price = fetchPrice.data.bpi.USD.rate_float.toFixed(2);
+    const helpCondition =
+      msg.text
+        .toString()
+        .toLowerCase()
+        .indexOf("help") === 0;
     const condition =
       msg.text
         .toString()
@@ -23,6 +28,13 @@ module.exports = {
       bot.sendMessage(
         msg.chat.id,
         `Hello ${msg.chat.first_name}, the bitcoin price is $${price} USD`
+      );
+    } else if (helpCondition) {
+      bot.sendMessage(
+        msg.chat.id,
+        `Hello ${
+          msg.chat.first_name
+        }, the current supported commands are "Btc price, bitcoin price"`
       );
     } else {
       bot.sendMessage(
