@@ -1,0 +1,19 @@
+{
+  "name": "bit-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "natural": "^0.6.3",
+    "node-bitstamp": "^2.2.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "nodemon": "^1.19.0"
+  }
+}
