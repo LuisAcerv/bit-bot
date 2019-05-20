@@ -74,10 +74,9 @@ module.exports = {
       feed.items.slice(0, 5).forEach(item => {
         bot.sendMessage(
           msg.chat.id,
-          `Hello ${msg.chat.first_name}, your btc feed: ${item.title} - ${
-            item.link
-          } "`
+          `Hello ${msg.chat.first_name}, your btc feed:`
         );
+        bot.sendMessage(msg.chat.id, `${item.title} - ${item.link} "`);
       });
     } else {
       bot.sendMessage(
