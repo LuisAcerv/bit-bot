@@ -71,11 +71,11 @@ module.exports = {
     } else if (feedCondition) {
       let feed = await parser.parseURL(process.env.C_T_NEWS);
 
+      bot.sendMessage(
+        msg.chat.id,
+        `Hello ${msg.chat.first_name}, your btc feed:`
+      );
       feed.items.slice(0, 10).forEach(item => {
-        bot.sendMessage(
-          msg.chat.id,
-          `Hello ${msg.chat.first_name}, your btc feed:`
-        );
         bot.sendMessage(msg.chat.id, `${item.title} - ${item.link} "`);
       });
     } else {
