@@ -71,7 +71,7 @@ module.exports = {
     } else if (feedCondition) {
       let feed = await parser.parseURL(process.env.C_T_NEWS);
 
-      feed.items.slice(0, 5).forEach(item => {
+      feed.items.slice(0, 10).forEach(item => {
         bot.sendMessage(
           msg.chat.id,
           `Hello ${msg.chat.first_name}, your btc feed:`
